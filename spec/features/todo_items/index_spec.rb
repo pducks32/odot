@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "Viewing todo items" do
   let!(:todo_list) {
-    TodoList.create title: "Grocery's List", description: "A list of things to buy at the grocery store"
+    TodoList.create title: "Grocery's List",
+                    description: "A list of things to buy at the grocery store"
   }
   def visit_todo_list(list=todo_list)
     visit "/todo_lists"

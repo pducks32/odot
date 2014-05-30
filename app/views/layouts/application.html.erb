@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% flash.each do |status, message| %>
+<dialog class="alert --<%=status %> flash" open>
+  <p><em><%= status %>: </em><%= message %></p>
+</dialog>
+<% end %>
 
 <%= yield %>
 
