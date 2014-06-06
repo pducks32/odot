@@ -4,13 +4,11 @@ class TodoItemsController < ApplicationController
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_list = TodoList.find(params[:todo_list_id])
     @todo_items = @todo_list.todo_items
   end
 
   # GET /todo_lists/1/todo_items/new
   def new
-    @todo_list = TodoList.find(params[:todo_list_id])
     @todo_item = @todo_list.todo_items.new
   end
 

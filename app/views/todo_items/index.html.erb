@@ -1,6 +1,6 @@
 <h1><%= @todo_list.title %></h1>
 
-<h1>Listing todo_items</h1>
+<h2>Listing todo_items</h2>
 
 <table>
   <thead>
@@ -13,9 +13,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="todo_items">
     <% @todo_items.each do |todo_item| %>
-      <tr id="<%= dom_id(todo_item) %>">
+      <tr id="<%= dom_id(todo_item) %>" class="todo_item">
         <td><%= todo_item.id %></td>
         <td><%= todo_item.content %></td>
         <td><%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list.id, todo_item.id) %></td>

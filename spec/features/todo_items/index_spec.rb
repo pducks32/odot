@@ -18,17 +18,22 @@ describe "Viewing todo items" do
       expect(page).to have_content todo_list.title
     end
   end
-  it "displays no items when a todo list is empty" do
-    expect(page.all("ul.todo_items li").size).to eq(0)
-  end
-  it "displays item content when a todo list has items" do
-    todo_list.todo_items.create(content: "Milk")
-    todo_list.todo_items.create(content: "Eggs")
-    visit_todo_list
-    expect(page.all("ul.todo_items li").size).to eq(2)
-    within "ul.todo_items" do
-      expect(page).to have_content("Milk")
-      expect(page).to have_content("Eggs")
+  context "when a todo list is empty" do
+    it "displays no items" do
+      expect(page.all(".todo_items .todo_item").size).to eq(0)
     end
   end
+  context "when a todo list has items" do
+    it "displays item content" do
+      todo_list.todo_items.create(content: "Milk")
+      todo_list.todo_items.create(content: "Eggs")
+      visit_todo_list
+      expect(page.all(".todo_items .todo_item").size).to eq(2)
+      within ".todo_items" do
+        expect(page).to have_content("Milk")
+        expect(page).to have_content("Eggs")
+      end
+    end
+  end
+
 end
