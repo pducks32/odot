@@ -62,7 +62,7 @@ describe TodoListsController do
   end
 
   describe "POST create" do
-    describe "with valid params" do
+    context "with valid params" do
       it "creates a new TodoList" do
         expect {
           post :create, {:todo_list => valid_attributes}, valid_session
@@ -81,7 +81,7 @@ describe TodoListsController do
       end
     end
 
-    describe "with invalid params" do
+    context "with invalid params" do
       it "assigns a newly created but unsaved todo_list as @todo_list" do
         # Trigger the behavior that occurs when invalid params are submitted
         TodoList.any_instance.stub(:save).and_return(false)
@@ -99,7 +99,7 @@ describe TodoListsController do
   end
 
   describe "PUT update" do
-    describe "with valid params" do
+    context "with valid params" do
       it "updates the requested todo_list" do
         todo_list = TodoList.create! valid_attributes
         # Assuming there are no other todo_lists in the database, this
@@ -123,7 +123,7 @@ describe TodoListsController do
       end
     end
 
-    describe "with invalid params" do
+    context "with invalid params" do
       it "assigns the todo_list as @todo_list" do
         todo_list = TodoList.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
